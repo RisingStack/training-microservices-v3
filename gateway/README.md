@@ -27,3 +27,35 @@ env:
       name: gateway
       key: jwtSecret
 ```
+
+Expose the appliaction through a NodePort
+
+```sh
+$ kubectl expose deployment gateway --type=NodePort --port=3000
+```
+
+Check it in your browser
+
+```sh
+$ minikube service gateway
+```
+
+Change the service to cluster IP. Open the service in the editor
+
+```sh
+$ kubectl edit service gateway
+```
+
+Delete the `nodePort` field from `ports` and replace the `type: NodePort` with `type: ClusterIP`
+
+Enable the ingress minikube addon:
+
+```sh
+$ minikube addons enable ingress
+```
+
+Create the ingress
+
+```sh
+$ kubectl create -f k8s/ingress.yml
+```
