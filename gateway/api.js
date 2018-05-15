@@ -11,6 +11,7 @@ const api = express()
 
 // api.use(cors())
 
+// TODO use route versioning
 api.post('/users/register', proxy(usersAPIURL))
 api.post(
   '/users/login',
