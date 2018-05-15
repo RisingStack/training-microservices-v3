@@ -11,7 +11,6 @@ const api = express()
 
 // api.use(cors())
 
-api.get('/', (req, res) => res.send('Hello, World!'))
 api.post('/users/register', proxy(usersAPIURL))
 api.post(
   '/users/login',

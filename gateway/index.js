@@ -5,6 +5,7 @@ const { serverPort, productsAPIURL, usersAPIURL } = require('./config')
 
 const app = express()
 
+api.get('/', (req, res) => res.send('Hello, World!'))
 app.use('/api', api)
 
 const listener = app.listen(serverPort, err => {
