@@ -14,4 +14,4 @@ version=$((version_history += 1))
 
 echo $version > $VERSION_FILE
 
-docker build . -t rs-ms/geatway:v$version
+docker build . -t rs-ms/gateway:v$version
