@@ -1,23 +1,24 @@
-export default function autoBlur(element = window) {
+export default function autoBlur () {
   window.addEventListener('keypress', ev => {
-    const isEnter = ev.charCode === 13 || ev.which === 13 || ev.keyCode === 13;
-    const isInput = element.matches('input, select');
+    const element = ev.target
+    const isEnter = ev.charCode === 13 || ev.which === 13 || ev.keyCode === 13
+    const isInput = element.matches('input, select')
     if (isInput && isEnter) {
       if (element.form) {
         const inputs = Array.from(
           element.form.querySelectorAll('input, textarea, select')
-        );
-        const inputIndex = inputs.indexOf(element);
-        const nextInput = inputs[inputIndex + 1];
+        )
+        const inputIndex = inputs.indexOf(element)
+        const nextInput = inputs[inputIndex + 1]
         if (nextInput) {
-          nextInput.focus();
-          nextInput.select();
+          nextInput.focus()
+          nextInput.select()
         } else {
-          element.blur();
+          element.blur()
         }
       } else {
-        element.blur();
+        element.blur()
       }
     }
-  });
+  })
 }

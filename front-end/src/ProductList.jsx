@@ -3,7 +3,6 @@ import { view, storage, path, params, Link } from 'react-easy-stack';
 import ReactDOM from 'react-dom';
 import Button from 'material-ui/Button';
 import AddIcon from 'material-ui-icons/Add';
-import Zoom from 'material-ui/transitions/Zoom';
 import appStore from './appStore';
 import Product from './Product';
 
@@ -35,6 +34,7 @@ function ProductList({ pageResolved }) {
       </div>
       {appStore.isLoggedIn &&
         ReactDOM.createPortal(
+<<<<<<< HEAD
           <Zoom in={path[0] === 'products'}>
             <Link to="/product" style={addButtonStyle}>
               <Button color="primary" variant="fab">
@@ -42,6 +42,13 @@ function ProductList({ pageResolved }) {
               </Button>
             </Link>
           </Zoom>,
+=======
+          <Link to="/product" style={addButtonStyle}>
+            <Button color="primary" variant="fab">
+              <AddIcon />
+            </Button>
+          </Link>,
+>>>>>>> frontend WIP
           document.getElementById('action-button')
         )}
     </Fragment>
