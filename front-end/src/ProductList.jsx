@@ -34,21 +34,11 @@ function ProductList({ pageResolved }) {
       </div>
       {appStore.isLoggedIn &&
         ReactDOM.createPortal(
-<<<<<<< HEAD
-          <Zoom in={path[0] === 'products'}>
-            <Link to="/product" style={addButtonStyle}>
-              <Button color="primary" variant="fab">
-                <AddIcon />
-              </Button>
-            </Link>
-          </Zoom>,
-=======
           <Link to="/product" style={addButtonStyle}>
             <Button color="primary" variant="fab">
               <AddIcon />
             </Button>
           </Link>,
->>>>>>> frontend WIP
           document.getElementById('action-button')
         )}
     </Fragment>
