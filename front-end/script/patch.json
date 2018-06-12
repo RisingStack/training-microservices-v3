@@ -1,0 +1,14 @@
+{
+    "spec": {
+        "template": {
+            "spec": {
+                "containers": [
+                    {
+                        "image": "rs-ms/geatway:v{{VERSION}}",
+                        "name": "gateway"
+                    }
+                ]
+            }
+        }
+    }
+}
