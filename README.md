@@ -58,3 +58,11 @@ Create the ingress
 ```sh
 $ kubectl create -f k8s/ingress.yml
 ```
+
+Get the ip of your cluster
+
+```sh
+minikube ip
+```
+
+Open it in your brwoser
