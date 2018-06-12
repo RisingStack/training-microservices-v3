@@ -88,7 +88,17 @@ $ kubectl create -f ../k8s/ingress.yml
 Get the ip of your cluster:
 
 ```sh
-minikube ip
+$ minikube ip
 ```
 
 Open it in your browser, and you should see a greeting from within your kubernetes cluster.
+
+Enter the front-end directory, and build the image.
+
+```sh
+$ cd front-end
+$ npm run docker-build
+```
+
+Be patient that can take 30 minutes even.
+

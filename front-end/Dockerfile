@@ -6,4 +6,4 @@ RUN npm run build
 
 FROM nginx
 COPY --from=builder build/ /usr/share/nginx/www/
-COPY nginx.conf /usr/share/nginx/www/nginx.conf
+COPY nginx.conf /etc/nginx/nginx.conf
