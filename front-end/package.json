@@ -26,7 +26,7 @@
     "purge-deployments": "now-purge -n generic-concrete-salad",
     "docker-build": "script/build.sh",
     "patch": "script/patch.sh",
-    "update": "npm run build && npm run patch"
+    "update": "npm run docker-build && npm run patch"
   },
   "now": {
     "alias": "generic-concrete-salad"
