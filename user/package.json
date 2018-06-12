@@ -1,0 +1,36 @@
+{
+  "name": "users",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "db-start": "docker run --rm --name freebie-users-local -e POSTGRES_PASSWORD=root -e POSTGRES_USER=root -e POSTGRES_DB=test-users-db -p 3001:5432 -d postgres:10",
+    "db-stop": "docker rm -f freebie-users-local || true",
+    "db-migrate": "./node_modules/.bin/knex migrate:latest",
+    "start": "node index.js",
+    "start:dev": "NODE_ENV=development PROCESS_TYPE=web ./node_modules/.bin/nodemon ./index.js",
+    "build": "scripts/build.sh",
+    "patch": "scripts/patch.sh",
+    "update": "npm run build && npm run patch"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^2.0.1",
+    "joi": "^13.3.0",
+    "jsonwebtoken": "^8.2.1",
+    "knex": "^0.14.6",
+    "koa": "^2.5.1",
+    "koa-bodyparser": "^4.2.1",
+    "koa-logger": "^3.2.0",
+    "koa-router": "^7.4.0",
+    "koa2-cors": "^2.0.5",
+    "winston": "^2.4.2",
+    "pg": "7.4.1"
+  },
+  "devDependencies": {
+    "dotenv": "^5.0.1",
+    "nodemon": "^1.17.5"
+  }
+}

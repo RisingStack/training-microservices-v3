@@ -1,0 +1,14 @@
+{
+    "spec": {
+        "template": {
+            "spec": {
+                "containers": [
+                    {
+                        "image": "rs-ms/user:v{{VERSION}}",
+                        "name": "user-web"
+                    }
+                ]
+            }
+        }
+    }
+}

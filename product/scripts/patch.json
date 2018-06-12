@@ -1,0 +1,14 @@
+{
+    "spec": {
+        "template": {
+            "spec": {
+                "containers": [
+                    {
+                        "image": "rs-ms/product:v{{VERSION}}",
+                        "name": "product-web"
+                    }
+                ]
+            }
+        }
+    }
+}
