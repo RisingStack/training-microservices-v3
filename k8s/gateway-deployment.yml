@@ -2,7 +2,7 @@ apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
   labels:
-    run: gateway
+    app: gateway
   name: gateway
 spec:
   selector:
