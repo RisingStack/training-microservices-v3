@@ -65,4 +65,4 @@ Get the ip of your cluster
 minikube ip
 ```
 
-Open it in your brwoser
+Open it in your browser
