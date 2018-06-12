@@ -1,0 +1,54 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  labels:
+      app: user
+      type: web
+  name: user-web
+spec:
+  selector:
+    matchLabels:
+      app: user
+      type: web
+  template:
+    metadata:
+      labels:
+        app: user
+        type: web
+    spec:
+      containers:
+      - image: rs-ms/user:v1
+        name: user
+        env:
+        - name: DB_USER
+          valueFrom:
+            secretKeyRef:
+              name: user
+              key: db_user
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: user
+              key: db_password
+        - name: DB_HOST
+          valueFrom:
+            secretKeyRef:
+              name: user
+              key: db_host
+        - name: DB_DATABASE
+          valueFrom:
+            secretKeyRef:
+              name: user
+              key: db_database
+        - name: DB_PORT
+          valueFrom:
+            secretKeyRef:
+              name: user
+              key: db_port
+        - name: TOKEN_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: user
+              key: token_secret
+        - name: PROCESS_TYPE
+          value: web

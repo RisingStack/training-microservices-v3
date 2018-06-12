@@ -1,0 +1,49 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  labels:
+      app: product
+      type: web
+  name: product-web
+spec:
+  selector:
+    matchLabels:
+      app: product
+      type: web
+  template:
+    metadata:
+      labels:
+        app: product
+        type: web
+    spec:
+      containers:
+      - image: rs-ms/product:v1
+        name: product
+        env:
+        - name: DB_USER
+          valueFrom:
+            secretKeyRef:
+              name: product
+              key: db_user
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: product
+              key: db_password
+        - name: DB_HOST
+          valueFrom:
+            secretKeyRef:
+              name: product
+              key: db_host
+        - name: DB_DATABASE
+          valueFrom:
+            secretKeyRef:
+              name: product
+              key: db_database
+        - name: DB_PORT
+          valueFrom:
+            secretKeyRef:
+              name: product
+              key: db_port
+        - name: PROCESS_TYPE
+          value: web
