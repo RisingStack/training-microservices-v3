@@ -16,3 +16,9 @@ spec:
       containers:
       - image: rs-ms/gateway:v1
         name: gateway
+        env:
+        - name: JWT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: gateway
+              key: jwtSecret
