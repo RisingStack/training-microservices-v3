@@ -9,11 +9,6 @@
 ```bash
 $ minikube start # start local kubernetes cluster
 $ eval $(minikube docker-env) # connect docker to cluster
-```
-
-## Gateway
-
-```sh
 $ minikube addons enable ingress # we will need to use ingress resources
 ```
 
