@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "db-start": "docker run --rm --name freebie-products-local -e POSTGRES_PASSWORD=root -e POSTGRES_USER=root -e POSTGRES_DB=test-products-db -p 3002:5432 -d postgres:10",
-    "db-stop": "docker rm -f freebie-products-local || true",
+    "db-start": "docker-compose up -d",
+    "db-stop": "docker-compose down -d",
     "db-migrate": "./node_modules/.bin/knex migrate:latest",
     "db-seed": "./node_modules/.bin/knex seed:run",
     "start": "node index.js",

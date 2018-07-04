@@ -2,6 +2,8 @@
 
 ## Prerequisites
 
+- [docker](https://www.docker.com/)
+- [docker-compose](https://docs.docker.com/compose/)
 - [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) - kubernetes manager CLI
 - [minikube](https://github.com/kubernetes/minikube) - local kubernetes cluster
 ```bash
@@ -12,6 +14,37 @@ $ eval $(minikube docker-env) # connect docker to cluster
 ## Gateway
 
 ```sh
+$ minikube addons enable ingress # we will need to use ingress resources
+```
+
+## Product service
+
+```bash
+$ cd product
+$ npm run build # build the image
+$ kubectl create -f ./k8s/ # create all the necessary kubernetes resources
+$ kubectl get pods
+```
+
+Running databases inside of the cluster is not part of the current training session. To emulate hosted database
+environments we created a docker-comopse script that runs a postgresql database on the minikube machine but outside of
+kubernetes.
+
+```bash
+$ npm run db-start
+```
+
+### Migrate db
+
+```bash
+$ kc exec product-web-XXX-XXX -it sh
+$ npm run db-migrate
+$ npm run db-seed
+```
+
+## Gateway
+
+```bash
 $ cd gateway
 $ npm run build # builds current image
 $ kubectl create -f ../k8s/gateway-deployment.yml` # create deployment
@@ -40,6 +73,14 @@ $ kubectl create secret generic gateway --from-literal=jwtSecret=my-secret # cre
 To use this secret as an environment variable; add this to `spec.template.spec.containers` in
 `k8s/gateway-deployment.yml`
 ([read more here](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/))
+
+```sh
+$ kubectl logs gateway-XXX-XXX
+# create secret
+$ kubectl create secret generic gateway --from-literal=jwtSecret=my-secret
+```
+
+Add this to `spec.template.spec.containers` in `k8s/gateway-deployment.yml`
 
 ```yaml
 ...
@@ -73,11 +114,6 @@ $ kubectl edit service gateway
 
 Delete the `nodePort` field from `ports` and replace the `type: NodePort` with `type: ClusterIP`
 
-Enable the ingress minikube addon:
-
-```sh
-$ minikube addons enable ingress
-```
 
 Create the ingress:
 
@@ -93,7 +129,7 @@ $ minikube ip
 
 Open it in your browser, and you should see a greeting from within your kubernetes cluster.
 
-Enter the front-end directory, and build the image.
+## Front-end
 
 ```sh
 $ cd front-end

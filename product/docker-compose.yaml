@@ -1,0 +1,20 @@
+version: '3.3'
+services:
+  db:
+    image: postgres:10.4-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: test-products-db
+    ports:
+      - 5432:5432
+  pgweb:
+    image: sosedoff/pgweb
+    restart: always
+    environment:
+      - DATABASE_URL=postgres://root:root@db:5432/test-products-db?sslmode=disable
+    ports:
+      - 5433:8081
+    links:
+      - db
