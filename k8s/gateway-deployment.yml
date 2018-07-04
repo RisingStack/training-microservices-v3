@@ -14,5 +14,5 @@ spec:
         app: gateway
     spec:
       containers:
-      - image: rs-ms/geatway:v1
+      - image: rs-ms/gateway:v1
         name: gateway
