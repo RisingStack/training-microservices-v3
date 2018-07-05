@@ -5,10 +5,10 @@
 - [docker](https://www.docker.com/)
 - [docker-compose](https://docs.docker.com/compose/)
 - [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) - kubernetes manager CLI
-- [minikube](https://github.com/kubernetes/minikube) - local kubernetes cluster
+- [minikube](https://github.com/kubernetes/minikube) - local virtualized kubernetes
 ```bash
-$ minikube start # start local kubernetes cluster
-$ eval $(minikube docker-env) # connect docker to cluster
+$ minikube start # start local kubernetes
+$ eval $(minikube docker-env) # connect docker to minikube machine
 $ minikube addons enable ingress # we will need to use ingress resources
 ```
 
@@ -21,7 +21,7 @@ $ kubectl create -f ./k8s/ # create all the necessary kubernetes resources
 $ kubectl get pods
 ```
 
-Running databases inside of the cluster is not part of the current training session. To emulate hosted database
+Running databases inside of the "cluster" is not part of the current training session. To emulate hosted database
 environments we created a docker-comopse script that runs a postgresql database on the minikube machine but outside of
 kubernetes.
 
