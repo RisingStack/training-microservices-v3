@@ -10,6 +10,34 @@
 $ minikube start # start local kubernetes
 $ eval $(minikube docker-env) # connect docker to minikube machine
 $ minikube addons enable ingress # we will need to use ingress resources
+$ docker-compose up -d # start databases
+```
+
+Running databases inside of the "cluster" is not part of the current training session. To emulate hosted database
+environments we created a docker-comopse script that runs a postgresql database on the minikube machine but outside of
+kubernetes.
+
+Navigate to http://localhost:5433 to view the database browser (pgweb). By default it will create a database for the
+one of the services. Navigate to the query tab and run the following query:
+```sql
+CREATE DATABASE "test-users-db";
+```
+
+## User service
+
+```bash
+$ cd user
+$ npm run build # build the image
+$ kubectl create -f ./k8s/ # create all the necessary kubernetes resources
+$ kubectl get pods # verify that they are running
+```
+
+### Migrate db
+
+```bash
+$ kc exec product-web-XXX-XXX -it sh
+$ npm run db-migrate
+$ npm run db-seed
 ```
 
 ## Product service
@@ -18,15 +46,7 @@ $ minikube addons enable ingress # we will need to use ingress resources
 $ cd product
 $ npm run build # build the image
 $ kubectl create -f ./k8s/ # create all the necessary kubernetes resources
-$ kubectl get pods
-```
-
-Running databases inside of the "cluster" is not part of the current training session. To emulate hosted database
-environments we created a docker-comopse script that runs a postgresql database on the minikube machine but outside of
-kubernetes.
-
-```bash
-$ npm run db-start
+$ kubectl get pods # verify that they are running
 ```
 
 ### Migrate db

@@ -17,7 +17,7 @@ spec:
         type: web
     spec:
       containers:
-      - image: rs-ms/product:v4
+      - image: rs-ms/product:v5
         name: product
         env:
         - name: DB_USER
