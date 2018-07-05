@@ -9,9 +9,9 @@ defaults(storage, {
 });
 
 const api = axios.create({
-  baseURL: 'https://freebie-server.sloppy.zone/api/',
+  baseURL: '/api/',
   headers: {
-    token: storage.token,
+    Authorization: `Bearer ${storage.token}`,
     'Content-Type': 'application/json'
   }
 });

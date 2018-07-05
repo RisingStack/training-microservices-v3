@@ -3,6 +3,15 @@ kind: Ingress
 metadata:
   name: rs-ingress
 spec:
-  backend:
-    serviceName: gateway
-    servicePort: 3000
+  rules:
+  - http:
+      paths:
+      - backend:
+          serviceName: gateway
+          servicePort: 3000
+        path: /api
+      - backend:
+          serviceName: front-end
+          servicePort: 3000
+        path: /
+
