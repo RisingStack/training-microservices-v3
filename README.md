@@ -13,6 +13,9 @@ $ minikube addons enable ingress # we will need to use ingress resources
 $ docker-compose up -d # start databases
 ```
 
+Before you begin, stop all docker daemon processes on your local machine to avoid collision. We are going to use a VirtualBox virtual
+machine to run docker.
+
 Running databases inside of the "cluster" is not part of the current training session. To emulate hosted database
 environments we created a docker-comopse script that runs a postgresql database on the minikube machine but outside of
 kubernetes.
