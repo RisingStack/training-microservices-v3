@@ -16,3 +16,4 @@ spec:
       containers:
       - image: rs-ms/front-end
         name: front-end
+        imagePullPolicy: IfNotPresent

@@ -19,6 +19,7 @@ spec:
       containers:
       - image: rs-ms/product
         name: product
+        imagePullPolicy: IfNotPresent
         env:
         - name: DB_USER
           valueFrom:
