@@ -14,7 +14,7 @@ spec:
         app: gateway
     spec:
       containers:
-      - image: rs-ms/gateway:v1
+      - image: rs-ms/gateway
         name: gateway
         env:
         - name: JWT_SECRET

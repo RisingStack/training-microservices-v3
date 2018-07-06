@@ -24,9 +24,7 @@
     "now-start": "serve build --single --cache 0",
     "deploy": "git add -A && git commit -m 'add code' && git push origin master && now && now alias",
     "purge-deployments": "now-purge -n generic-concrete-salad",
-    "docker-build": "script/build.sh",
-    "patch": "script/patch.sh",
-    "update": "npm run docker-build && npm run patch"
+    "docker-build": "../build.sh \"front-end\""
   },
   "now": {
     "alias": "generic-concrete-salad"

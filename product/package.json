@@ -11,9 +11,7 @@
     "db-seed": "./node_modules/.bin/knex seed:run",
     "start": "node index.js",
     "start:dev": "NODE_ENV=development PROCESS_TYPE=web ./node_modules/.bin/nodemon ./index.js",
-    "build": "scripts/build.sh",
-    "patch": "scripts/patch.sh",
-    "update": "npm run build && npm run patch"
+    "build": "../build.sh product"
   },
   "author": "",
   "license": "ISC",
