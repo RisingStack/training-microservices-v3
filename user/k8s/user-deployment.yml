@@ -17,7 +17,7 @@ spec:
         type: web
     spec:
       containers:
-      - image: rs-ms/user:v2
+      - image: rs-ms/user
         name: user
         env:
         - name: DB_USER
