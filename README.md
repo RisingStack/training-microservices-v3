@@ -23,7 +23,7 @@ kubernetes.
 Easy mode:
 
 ```sh
-./up.sh
+./scripts/up
 ```
 
 If you encounter any problems: follow the guide below.
@@ -55,12 +55,12 @@ $ kubectl get pods # verify that they are running
 ### Migrate db
 
 ```bash
-./migrate.sh
+./scripts/migrate
 ```
 
 ## Front-end
 
-```sh
+```bash
 $ cd front-end
 $ npm run docker-build
 ```

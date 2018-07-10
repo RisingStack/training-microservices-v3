@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon --use_strict -r dotenv/config index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "docker-build": "../build.sh gateway"
+    "docker-build": "../scripts/build gateway"
   },
   "dependencies": {
     "axios": "0.18.0",
