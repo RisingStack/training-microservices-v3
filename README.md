@@ -1,4 +1,4 @@
-# Microservice Training
+j Microservice Training
 
 ## Prerequisites
 
@@ -20,6 +20,14 @@ Running databases inside of the "cluster" is not part of the current training se
 environments we created a docker-comopse script that runs a postgresql database on the minikube machine but outside of
 kubernetes.
 
+Easy mode:
+
+```sh
+./up.sh
+```
+
+If you encounter any problems: follow the guide below.
+
 Navigate to http://localhost:5433 to view the database browser (pgweb). By default it will create a database for the
 one of the services. Navigate to the query tab and run the following query:
 ```sql
@@ -35,13 +43,6 @@ $ kubectl create -f ./k8s/ # create all the necessary kubernetes resources
 $ kubectl get pods # verify that they are running
 ```
 
-### Migrate db
-
-```bash
-$ kubectl exec product-web-XXX-XXX -it sh
-$ npm run db-migrate
-```
-
 ## Product service
 
 ```bash
@@ -54,9 +55,7 @@ $ kubectl get pods # verify that they are running
 ### Migrate db
 
 ```bash
-$ kubectl exec product-web-XXX-XXX -it sh
-$ npm run db-migrate
-$ npm run db-seed
+./migrate.sh
 ```
 
 ## Front-end
