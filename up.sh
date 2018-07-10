@@ -8,7 +8,7 @@ script_directory="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 for app in "user" "product" "gateway" "front-end"; do
   echo "cding into: $script_directory/$app"
   cd "$script_directory/$app"
-  npm run build
+  npm run docker-build
   kubectl create -f ./k8s || true
 done
 
