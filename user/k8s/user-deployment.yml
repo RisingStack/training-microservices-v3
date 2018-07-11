@@ -20,6 +20,12 @@ spec:
       - image: rs-ms/user
         name: user
         imagePullPolicy: IfNotPresent
+        livenessProbe:
+          httpGet:
+            path: /healthcheck
+            port: 8080
+          initialDelaySeconds: 3
+          periodSeconds: 1 # just to match the example, in real life it would be 3 - 5 seconds, but mostly based on severity
         env:
         - name: DB_USER
           valueFrom:
