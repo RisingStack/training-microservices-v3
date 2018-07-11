@@ -2,6 +2,11 @@
 
 const path = require('path')
 const joi = require('joi')
+const dotenv = require('dotenv')
+
+if (process.env.NODE_ENV === 'development') {
+  dotenv.config({ silent: true })
+}
 
 const envVarsSchema = joi.object({
   DB_HOST: joi.string().required(),

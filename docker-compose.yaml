@@ -18,3 +18,8 @@ services:
       - 5433:8081
     links:
       - db
+  redis:
+    image: redis:alpine
+    restart: always
+    ports:
+      - 6379:6379
