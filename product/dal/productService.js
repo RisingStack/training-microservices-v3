@@ -15,7 +15,14 @@ const ProductService = {
   getProductByID(id) {
     return db(tableName)
       .where({ id })
-      .then((result) => result)
+      .then((result) => {
+        if (result[0].id === 2) {
+          console.log('Sending back data')
+          return result
+        }
+        console.log('Rejecting call')
+        Promise.reject()
+      })
   },
 
   getProductsBySearch(searchString) {
