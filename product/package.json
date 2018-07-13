@@ -10,7 +10,7 @@
     "db-migrate": "./node_modules/.bin/knex migrate:latest",
     "db-seed": "./node_modules/.bin/knex seed:run",
     "start": "node index.js",
-    "start:dev": "NODE_ENV=development PROCESS_TYPE=web ./node_modules/.bin/nodemon ./index.js",
+    "start:dev": "NODE_ENV=development ./node_modules/.bin/nodemon -r dotenv/config ./index.js",
     "docker-build": "../scripts/build product"
   },
   "author": "",
