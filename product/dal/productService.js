@@ -22,12 +22,15 @@ const ProductService = {
     return db(tableName)
       .where({ id })
       .then((result) => {
-        if (result[0].id === 2) {
-          console.log('Sending back data')
-          return result
-        }
-        console.log('Rejecting call')
-        Promise.reject()
+        return new Promise((resolve, reject) => {
+          if (result[0].id === 2) {
+            setTimeout(() => {
+              resolve(result)
+            }, 3000)
+          } else {
+            reject()
+          }
+        })
       })
   },
 

@@ -9,8 +9,7 @@ const proxyMiddleware = async (ctx, next) => {
       url: `http://localhost:${appPort}${ctx.request.path}`
     })
     ctx.body = response.data
-    console.log('[PROXY] RESPONSE body:', response.data)
-    // next()
+    console.log('[PROXY] The response body has been updated')
   } catch (error) {
     console.error('[PROXY] Error in the request')
     ctx.throw(500)

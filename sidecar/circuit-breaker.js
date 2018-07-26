@@ -16,8 +16,6 @@ const circuitBreaker = async (ctx, next) => {
   // with resolving the promise, Koa will send the response, since this is our last middleware in line
   return new Promise((resolve, reject) => {
     breaker.run(async (success, failed) => {
-      console.log('[CB] This is the circuit breaker middleware')
-
       try {
         await next()
         console.log('[CB] All the other middleware has been run, sending back the response')
