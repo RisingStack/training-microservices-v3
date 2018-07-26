@@ -1,10 +1,6 @@
-const url = require('url')
 const express = require('express')
-const axios = require('axios')
 const proxy = require('express-http-proxy')
-const cors = require('cors')
-
-const { circuitBreaker } = require('./circuit-breaker')
+// const cors = require('cors')
 
 const { productsAPIURL, usersAPIURL } = require('./config')
 const auth = require('./auth')
@@ -47,15 +43,7 @@ api.post(
 
 api.get('/products', proxy(productsAPIURL))
 api.post('/products', auth.middleware, proxy(productsAPIURL))
-api.get('/products/:id', (req, res) => {
-  circuitBreaker(`${productsAPIURL}/products/${req.params.id}`, 'GET')
-    .then((result) => {
-      res.send(result)
-    })
-    .catch((err) => {
-      res.status(500).send(err)
-    })
-})
+api.get('/products/:id', proxy(productsAPIURL))
 api.delete('/products/:id', auth.middleware, proxy(productsAPIURL))
 api.put('/products/:id', auth.middleware, proxy(productsAPIURL))
 

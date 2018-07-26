@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "axios": "0.18.0",
-    "circuit-breaker-js": "0.0.1",
     "cors": "2.8.4",
     "dotenv": "5.0.1",
     "express": "4.16.3",
