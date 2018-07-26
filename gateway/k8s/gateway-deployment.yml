@@ -21,3 +21,8 @@ spec:
             secretKeyRef:
               name: gateway
               key: jwtSecret
+        - name: REDIS_HOST
+          valueFrom:
+            secretKeyRef:
+              name: gateway
+              key: redis_host

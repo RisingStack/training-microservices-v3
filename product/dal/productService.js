@@ -9,7 +9,13 @@ const ProductService = {
     return db(tableName)
       .select()
       .orderBy('id', 'asc')
-      .then((result) => result)
+      .then((result) => {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve(result)
+          }, 3000);
+        })
+      })
   },
 
   getProductByID(id) {
