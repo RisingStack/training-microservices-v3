@@ -1,4 +1,4 @@
-j Microservice Training
+# Microservice Training
 
 ## Prerequisites
 
@@ -6,6 +6,7 @@ j Microservice Training
 - [docker-compose](https://docs.docker.com/compose/)
 - [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) - kubernetes manager CLI
 - [minikube](https://github.com/kubernetes/minikube) - local virtualized kubernetes
+
 ```bash
 $ minikube start # start local kubernetes
 $ eval $(minikube docker-env) # connect docker to minikube machine
@@ -30,6 +31,7 @@ If you encounter any problems: follow the guide below.
 
 Navigate to http://localhost:5433 to view the database browser (pgweb). By default it will create a database for the
 one of the services. Navigate to the query tab and run the following query:
+
 ```sql
 CREATE DATABASE "test-users-db";
 ```
@@ -78,3 +80,10 @@ $ kubectl create -f ./k8s/`
 In case of image pull error, your docker environment is not pointed to kubernetes, so kubernetes cannot pull it from
 there. Try rebuilding the container from the previous step and the edit the kubernetes deployment with:
 `kubectl edit gateway`
+
+## Windows users notice
+
+Docker for windows includes kubernetes, so instead of using minikube we can start using the kubernetes service provided by docker.
+
+Ingress is not included by default, we have to include the following command:
+https://github.com/docker/for-win/issues/1901
