@@ -16,8 +16,6 @@ docker-compose up -d
 echo 'waiting 30 seconds for postgresql to start...'
 sleep 30
 
-docker exec $(docker ps --format '{{.ID}}' -f name=trainingmicroservicesv3_db) \
-  psql -d \
-  test-products-db -c "CREATE DATABASE \"test-users-db\""
+docker exec $(docker ps --format '{{.ID}}' -f name=trainingmicroservicesv3_db) psql -d test-products-db -c "CREATE DATABASE \"test-users-db\""
 
 $script_directory/migrate

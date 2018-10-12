@@ -1,3 +1,5 @@
+apiVersion: apps/v1beta2
+kind: Deployment
 metadata:
   labels:
     app: gateway
@@ -12,12 +14,12 @@ spec:
         app: gateway
     spec:
       containers:
-      - image: rs-ms/gateway
-        name: gateway
-        imagePullPolicy: IfNotPresent
-        env:
-        - name: JWT_SECRET
-          valueFrom:
-            secretKeyRef:
-              name: gateway
-              key: jwtSecret
+        - image: rs-ms/gateway
+          name: gateway
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: gateway
+                  key: jwtSecret
