@@ -1,0 +1,22 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  labels:
+    app: example
+    type: web
+  name: example-web
+spec:
+  selector:
+    matchLabels:
+      app: example
+      type: web
+  template:
+    metadata:
+      labels:
+        app: example
+        type: web
+    spec:
+      containers:
+        - image: rs-ms/example-alpine
+          name: product
+          imagePullPolicy: IfNotPresent

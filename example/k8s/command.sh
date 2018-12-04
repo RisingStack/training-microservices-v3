@@ -1,0 +1,1 @@
+kubectl expose deployment example-web --port 3000 --type=LoadBalancer --name=example-service
